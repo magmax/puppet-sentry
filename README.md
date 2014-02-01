@@ -130,6 +130,17 @@ To create the virtual machine. Once everything is set, you can enter the virtual
     $ vagrant ssh
 
 
+### About the repository
+
+There are some special files:
+
+- **vagrant**, that contains the puppet configuration for vagrant. This file may be used as example to use this module.
+- **Vagrantfile**, configuration for [Vagrant]
+- **Puppetfile**, configuration for [librarian-puppet]
+- **sentry**, link to '.', required for [Vagrant] to find this module. This file is only required for development reasons.
+
+The rest of files are part of example42 templates and, indeed, the puppet-sentry module.
+
 ## CONTINUOUS TESTING
 
 Travis {<img src="https://travis-ci.org/magmax/puppet-sentry.png?branch=master" alt="Build Status" />}[https://travis-ci.org/magmax/puppet-sentry]
