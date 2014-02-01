@@ -1,6 +1,6 @@
-# = Class: standard42
+# = Class: sentry
 #
-# This is the main standard42 class
+# This is the main sentry class
 #
 #
 # == Parameters
@@ -10,38 +10,38 @@
 #
 # [*my_class*]
 #   Name of a custom class to autoload to manage module's customizations
-#   If defined, standard42 class will automatically "include $my_class"
-#   Can be defined also by the (top scope) variable $standard42_myclass
+#   If defined, sentry class will automatically "include $my_class"
+#   Can be defined also by the (top scope) variable $sentry_myclass
 #
 # [*source*]
 #   Sets the content of source parameter for main configuration file
-#   If defined, standard42 main config file will have the param: source => $source
-#   Can be defined also by the (top scope) variable $standard42_source
+#   If defined, sentry main config file will have the param: source => $source
+#   Can be defined also by the (top scope) variable $sentry_source
 #
 # [*source_dir*]
-#   If defined, the whole standard42 configuration directory content is retrieved
+#   If defined, the whole sentry configuration directory content is retrieved
 #   recursively from the specified source
 #   (source => $source_dir , recurse => true)
-#   Can be defined also by the (top scope) variable $standard42_source_dir
+#   Can be defined also by the (top scope) variable $sentry_source_dir
 #
 # [*source_dir_purge*]
 #   If set to true (default false) the existing configuration directory is
 #   mirrored with the content retrieved from source_dir
 #   (source => $source_dir , recurse => true , purge => true)
-#   Can be defined also by the (top scope) variable $standard42_source_dir_purge
+#   Can be defined also by the (top scope) variable $sentry_source_dir_purge
 #
 # [*template*]
 #   Sets the path to the template to use as content for main configuration file
-#   If defined, standard42 main config file has: content => content("$template")
+#   If defined, sentry main config file has: content => content("$template")
 #   Note source and template parameters are mutually exclusive: don't use both
-#   Can be defined also by the (top scope) variable $standard42_template
+#   Can be defined also by the (top scope) variable $sentry_template
 #
 # [*options*]
 #   An hash of custom options to be used in templates for arbitrary settings.
-#   Can be defined also by the (top scope) variable $standard42_options
+#   Can be defined also by the (top scope) variable $sentry_options
 #
 # [*service_autorestart*]
-#   Automatically restarts the standard42 service when there is a change in
+#   Automatically restarts the sentry service when there is a change in
 #   configuration files. Default: true, Set to false if you don't want to
 #   automatically restart the service.
 #
@@ -53,76 +53,76 @@
 #
 # [*absent*]
 #   Set to 'true' to remove package(s) installed by module
-#   Can be defined also by the (top scope) variable $standard42_absent
+#   Can be defined also by the (top scope) variable $sentry_absent
 #
 # [*disable*]
 #   Set to 'true' to disable service(s) managed by module
-#   Can be defined also by the (top scope) variable $standard42_disable
+#   Can be defined also by the (top scope) variable $sentry_disable
 #
 # [*disableboot*]
 #   Set to 'true' to disable service(s) at boot, without checks if it's running
 #   Use this when the service is managed by a tool like a cluster software
-#   Can be defined also by the (top scope) variable $standard42_disableboot
+#   Can be defined also by the (top scope) variable $sentry_disableboot
 #
 # [*monitor*]
 #   Set to 'true' to enable monitoring of the services provided by the module
-#   Can be defined also by the (top scope) variables $standard42_monitor
+#   Can be defined also by the (top scope) variables $sentry_monitor
 #   and $monitor
 #
 # [*monitor_tool*]
 #   Define which monitor tools (ad defined in Example42 monitor module)
-#   you want to use for standard42 checks
-#   Can be defined also by the (top scope) variables $standard42_monitor_tool
+#   you want to use for sentry checks
+#   Can be defined also by the (top scope) variables $sentry_monitor_tool
 #   and $monitor_tool
 #
 # [*monitor_target*]
 #   The Ip address or hostname to use as a target for monitoring tools.
 #   Default is the fact $ipaddress
-#   Can be defined also by the (top scope) variables $standard42_monitor_target
+#   Can be defined also by the (top scope) variables $sentry_monitor_target
 #   and $monitor_target
 #
 # [*puppi*]
 #   Set to 'true' to enable creation of module data files that are used by puppi
-#   Can be defined also by the (top scope) variables $standard42_puppi and $puppi
+#   Can be defined also by the (top scope) variables $sentry_puppi and $puppi
 #
 # [*puppi_helper*]
 #   Specify the helper to use for puppi commands. The default for this module
 #   is specified in params.pp and is generally a good choice.
 #   You can customize the output of puppi commands for this module using another
 #   puppi helper. Use the define puppi::helper to create a new custom helper
-#   Can be defined also by the (top scope) variables $standard42_puppi_helper
+#   Can be defined also by the (top scope) variables $sentry_puppi_helper
 #   and $puppi_helper
 #
 # [*firewall*]
 #   Set to 'true' to enable firewalling of the services provided by the module
-#   Can be defined also by the (top scope) variables $standard42_firewall
+#   Can be defined also by the (top scope) variables $sentry_firewall
 #   and $firewall
 #
 # [*firewall_tool*]
 #   Define which firewall tool(s) (ad defined in Example42 firewall module)
-#   you want to use to open firewall for standard42 port(s)
-#   Can be defined also by the (top scope) variables $standard42_firewall_tool
+#   you want to use to open firewall for sentry port(s)
+#   Can be defined also by the (top scope) variables $sentry_firewall_tool
 #   and $firewall_tool
 #
 # [*firewall_src*]
-#   Define which source ip/net allow for firewalling standard42. Default: 0.0.0.0/0
-#   Can be defined also by the (top scope) variables $standard42_firewall_src
+#   Define which source ip/net allow for firewalling sentry. Default: 0.0.0.0/0
+#   Can be defined also by the (top scope) variables $sentry_firewall_src
 #   and $firewall_src
 #
 # [*firewall_dst*]
 #   Define which destination ip to use for firewalling. Default: $ipaddress
-#   Can be defined also by the (top scope) variables $standard42_firewall_dst
+#   Can be defined also by the (top scope) variables $sentry_firewall_dst
 #   and $firewall_dst
 #
 # [*debug*]
 #   Set to 'true' to enable modules debugging
-#   Can be defined also by the (top scope) variables $standard42_debug and $debug
+#   Can be defined also by the (top scope) variables $sentry_debug and $debug
 #
 # [*audit_only*]
 #   Set to 'true' if you don't intend to override existing configuration files
 #   and want to audit the difference between existing files and the ones
 #   managed by Puppet.
-#   Can be defined also by the (top scope) variables $standard42_audit_only
+#   Can be defined also by the (top scope) variables $sentry_audit_only
 #   and $audit_only
 #
 # [*noops*]
@@ -130,30 +130,30 @@
 #   Basically you can run a dryrun for this specific module if you set
 #   this to true. Default: false
 #
-# Default class params - As defined in standard42::params.
+# Default class params - As defined in sentry::params.
 # Note that these variables are mostly defined and used in the module itself,
 # overriding the default values might not affected all the involved components.
 # Set and override them only if you know what you're doing.
 # Note also that you can't override/set them via top scope variables.
 #
 # [*package*]
-#   The name of standard42 package
+#   The name of sentry package
 #
 # [*service*]
-#   The name of standard42 service
+#   The name of sentry service
 #
 # [*service_status*]
-#   If the standard42 service init script supports status argument
+#   If the sentry service init script supports status argument
 #
 # [*process*]
-#   The name of standard42 process
+#   The name of sentry process
 #
 # [*process_args*]
-#   The name of standard42 arguments. Used by puppi and monitor.
-#   Used only in case the standard42 process name is generic (java, ruby...)
+#   The name of sentry arguments. Used by puppi and monitor.
+#   Used only in case the sentry process name is generic (java, ruby...)
 #
 # [*process_user*]
-#   The name of the user standard42 runs with. Used by puppi and monitor.
+#   The name of the user sentry runs with. Used by puppi and monitor.
 #
 # [*config_dir*]
 #   Main configuration directory. Used by puppi
@@ -189,17 +189,17 @@
 #   The listening port, if any, of the service.
 #   This is used by monitor, firewall and puppi (optional) components
 #   Note: This doesn't necessarily affect the service configuration file
-#   Can be defined also by the (top scope) variable $standard42_port
+#   Can be defined also by the (top scope) variable $sentry_port
 #
 # [*protocol*]
 #   The protocol used by the the service.
 #   This is used by monitor, firewall and puppi (optional) components
-#   Can be defined also by the (top scope) variable $standard42_protocol
+#   Can be defined also by the (top scope) variable $sentry_protocol
 #
 #
 # See README for usage patterns.
 #
-class standard42 (
+class sentry (
   $my_class            = params_lookup( 'my_class' ),
   $source              = params_lookup( 'source' ),
   $source_dir          = params_lookup( 'source_dir' ),
@@ -241,7 +241,7 @@ class standard42 (
   $log_file            = params_lookup( 'log_file' ),
   $port                = params_lookup( 'port' ),
   $protocol            = params_lookup( 'protocol' )
-  ) inherits standard42::params {
+  ) inherits sentry::params {
 
   $bool_source_dir_purge=any2bool($source_dir_purge)
   $bool_service_autorestart=any2bool($service_autorestart)
@@ -256,195 +256,197 @@ class standard42 (
   $bool_noops=any2bool($noops)
 
   ### Definition of some variables used in the module
-  $manage_package = $standard42::bool_absent ? {
+  $manage_package = $sentry::bool_absent ? {
     true  => 'absent',
-    false => $standard42::version,
+    false => $sentry::version,
   }
 
-  $manage_service_enable = $standard42::bool_disableboot ? {
+  $manage_service_enable = $sentry::bool_disableboot ? {
     true    => false,
-    default => $standard42::bool_disable ? {
+    default => $sentry::bool_disable ? {
       true    => false,
-      default => $standard42::bool_absent ? {
+      default => $sentry::bool_absent ? {
         true  => false,
         false => true,
       },
     },
   }
 
-  $manage_service_ensure = $standard42::bool_disable ? {
+  $manage_service_ensure = $sentry::bool_disable ? {
     true    => 'stopped',
-    default =>  $standard42::bool_absent ? {
+    default =>  $sentry::bool_absent ? {
       true    => 'stopped',
       default => 'running',
     },
   }
 
-  $manage_service_autorestart = $standard42::bool_service_autorestart ? {
-    true    => Service[standard42],
+  $manage_service_autorestart = $sentry::bool_service_autorestart ? {
+    true    => Service[sentry],
     false   => undef,
   }
 
-  $manage_file = $standard42::bool_absent ? {
+  $manage_file = $sentry::bool_absent ? {
     true    => 'absent',
     default => 'present',
   }
 
-  if $standard42::bool_absent == true
-  or $standard42::bool_disable == true
-  or $standard42::bool_disableboot == true {
+  if $sentry::bool_absent == true
+  or $sentry::bool_disable == true
+  or $sentry::bool_disableboot == true {
     $manage_monitor = false
   } else {
     $manage_monitor = true
   }
 
-  if $standard42::bool_absent == true
-  or $standard42::bool_disable == true {
+  if $sentry::bool_absent == true
+  or $sentry::bool_disable == true {
     $manage_firewall = false
   } else {
     $manage_firewall = true
   }
 
-  $manage_audit = $standard42::bool_audit_only ? {
+  $manage_audit = $sentry::bool_audit_only ? {
     true  => 'all',
     false => undef,
   }
 
-  $manage_file_replace = $standard42::bool_audit_only ? {
+  $manage_file_replace = $sentry::bool_audit_only ? {
     true  => false,
     false => true,
   }
 
-  $manage_file_source = $standard42::source ? {
+  $manage_file_source = $sentry::source ? {
     ''        => undef,
-    default   => $standard42::source,
+    default   => $sentry::source,
   }
 
-  $manage_file_content = $standard42::template ? {
+  $manage_file_content = $sentry::template ? {
     ''        => undef,
-    default   => template($standard42::template),
+    default   => template($sentry::template),
   }
 
   ### Managed resources
-  package { $standard42::package:
-    ensure  => $standard42::manage_package,
-    noop    => $standard42::bool_noops,
+  package { $sentry::package:
+    provider => 'pip',
+    ensure   => $sentry::manage_package,
+    noop     => $sentry::bool_noops,
+    require  =>  Package['python-pip'],
   }
 
-  service { 'standard42':
-    ensure     => $standard42::manage_service_ensure,
-    name       => $standard42::service,
-    enable     => $standard42::manage_service_enable,
-    hasstatus  => $standard42::service_status,
-    pattern    => $standard42::process,
-    require    => Package[$standard42::package],
-    noop       => $standard42::bool_noops,
+  service { 'sentry':
+    ensure     => $sentry::manage_service_ensure,
+    name       => $sentry::service,
+    enable     => $sentry::manage_service_enable,
+    hasstatus  => $sentry::service_status,
+    pattern    => $sentry::process,
+    require    => Package[$sentry::package],
+    noop       => $sentry::bool_noops,
   }
 
-  file { 'standard42.conf':
-    ensure  => $standard42::manage_file,
-    path    => $standard42::config_file,
-    mode    => $standard42::config_file_mode,
-    owner   => $standard42::config_file_owner,
-    group   => $standard42::config_file_group,
-    require => Package[$standard42::package],
-    notify  => $standard42::manage_service_autorestart,
-    source  => $standard42::manage_file_source,
-    content => $standard42::manage_file_content,
-    replace => $standard42::manage_file_replace,
-    audit   => $standard42::manage_audit,
-    noop    => $standard42::bool_noops,
+  file { 'sentry.conf':
+    ensure  => $sentry::manage_file,
+    path    => $sentry::config_file,
+    mode    => $sentry::config_file_mode,
+    owner   => $sentry::config_file_owner,
+    group   => $sentry::config_file_group,
+    require => Package[$sentry::package],
+    notify  => $sentry::manage_service_autorestart,
+    source  => $sentry::manage_file_source,
+    content => $sentry::manage_file_content,
+    replace => $sentry::manage_file_replace,
+    audit   => $sentry::manage_audit,
+    noop    => $sentry::bool_noops,
   }
 
-  # The whole standard42 configuration directory can be recursively overriden
-  if $standard42::source_dir {
-    file { 'standard42.dir':
+  # The whole sentry configuration directory can be recursively overriden
+  if $sentry::source_dir {
+    file { 'sentry.dir':
       ensure  => directory,
-      path    => $standard42::config_dir,
-      require => Package[$standard42::package],
-      notify  => $standard42::manage_service_autorestart,
-      source  => $standard42::source_dir,
+      path    => $sentry::config_dir,
+      require => Package[$sentry::package],
+      notify  => $sentry::manage_service_autorestart,
+      source  => $sentry::source_dir,
       recurse => true,
-      purge   => $standard42::bool_source_dir_purge,
-      force   => $standard42::bool_source_dir_purge,
-      replace => $standard42::manage_file_replace,
-      audit   => $standard42::manage_audit,
-      noop    => $standard42::bool_noops,
+      purge   => $sentry::bool_source_dir_purge,
+      force   => $sentry::bool_source_dir_purge,
+      replace => $sentry::manage_file_replace,
+      audit   => $sentry::manage_audit,
+      noop    => $sentry::bool_noops,
     }
   }
 
 
   ### Include custom class if $my_class is set
-  if $standard42::my_class {
-    include $standard42::my_class
+  if $sentry::my_class {
+    include $sentry::my_class
   }
 
 
   ### Provide puppi data, if enabled ( puppi => true )
-  if $standard42::bool_puppi == true {
+  if $sentry::bool_puppi == true {
     $classvars=get_class_args()
-    puppi::ze { 'standard42':
-      ensure    => $standard42::manage_file,
+    puppi::ze { 'sentry':
+      ensure    => $sentry::manage_file,
       variables => $classvars,
-      helper    => $standard42::puppi_helper,
-      noop      => $standard42::bool_noops,
+      helper    => $sentry::puppi_helper,
+      noop      => $sentry::bool_noops,
     }
   }
 
 
   ### Service monitoring, if enabled ( monitor => true )
-  if $standard42::bool_monitor == true {
-    if $standard42::port != '' {
-      monitor::port { "standard42_${standard42::protocol}_${standard42::port}":
-        protocol => $standard42::protocol,
-        port     => $standard42::port,
-        target   => $standard42::monitor_target,
-        tool     => $standard42::monitor_tool,
-        enable   => $standard42::manage_monitor,
-        noop     => $standard42::bool_noops,
+  if $sentry::bool_monitor == true {
+    if $sentry::port != '' {
+      monitor::port { "sentry_${sentry::protocol}_${sentry::port}":
+        protocol => $sentry::protocol,
+        port     => $sentry::port,
+        target   => $sentry::monitor_target,
+        tool     => $sentry::monitor_tool,
+        enable   => $sentry::manage_monitor,
+        noop     => $sentry::bool_noops,
       }
     }
-    if $standard42::service != '' {
-      monitor::process { 'standard42_process':
-        process  => $standard42::process,
-        service  => $standard42::service,
-        pidfile  => $standard42::pid_file,
-        user     => $standard42::process_user,
-        argument => $standard42::process_args,
-        tool     => $standard42::monitor_tool,
-        enable   => $standard42::manage_monitor,
-        noop     => $standard42::bool_noops,
+    if $sentry::service != '' {
+      monitor::process { 'sentry_process':
+        process  => $sentry::process,
+        service  => $sentry::service,
+        pidfile  => $sentry::pid_file,
+        user     => $sentry::process_user,
+        argument => $sentry::process_args,
+        tool     => $sentry::monitor_tool,
+        enable   => $sentry::manage_monitor,
+        noop     => $sentry::bool_noops,
       }
     }
   }
 
 
   ### Firewall management, if enabled ( firewall => true )
-  if $standard42::bool_firewall == true and $standard42::port != '' {
-    firewall { "standard42_${standard42::protocol}_${standard42::port}":
-      source      => $standard42::firewall_src,
-      destination => $standard42::firewall_dst,
-      protocol    => $standard42::protocol,
-      port        => $standard42::port,
+  if $sentry::bool_firewall == true and $sentry::port != '' {
+    firewall { "sentry_${sentry::protocol}_${sentry::port}":
+      source      => $sentry::firewall_src,
+      destination => $sentry::firewall_dst,
+      protocol    => $sentry::protocol,
+      port        => $sentry::port,
       action      => 'allow',
       direction   => 'input',
-      tool        => $standard42::firewall_tool,
-      enable      => $standard42::manage_firewall,
-      noop        => $standard42::bool_noops,
+      tool        => $sentry::firewall_tool,
+      enable      => $sentry::manage_firewall,
+      noop        => $sentry::bool_noops,
     }
   }
 
 
   ### Debugging, if enabled ( debug => true )
-  if $standard42::bool_debug == true {
-    file { 'debug_standard42':
-      ensure  => $standard42::manage_file,
-      path    => "${settings::vardir}/debug-standard42",
+  if $sentry::bool_debug == true {
+    file { 'debug_sentry':
+      ensure  => $sentry::manage_file,
+      path    => "${settings::vardir}/debug-sentry",
       mode    => '0640',
       owner   => 'root',
       group   => 'root',
       content => inline_template('<%= scope.to_hash.reject { |k,v| k.to_s =~ /(uptime.*|path|timestamp|free|.*password.*|.*psk.*|.*key)/ }.to_yaml %>'),
-      noop    => $standard42::bool_noops,
+      noop    => $sentry::bool_noops,
     }
   }
 

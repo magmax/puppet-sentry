@@ -7,3 +7,11 @@ Session.vim
 spec/fixtures
 .*.sw[a-z]
 *.un~
+*~
+\#*
+\.\#*
+.vagrant/
+.librarian/
+Puppetfile.lock
+.tmp/
+modules/
