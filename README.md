@@ -2,7 +2,7 @@
 
 
 
-This is a Puppet module for sentry based on the second generation layout ("NextGen") of Example42 Puppet Modules.
+This is a Puppet module for [Sentry] based on the second generation layout ("NextGen") of Example42 Puppet Modules.
 
 Made by Miguel Ángel Garcia / MagMax
 
@@ -146,5 +146,6 @@ The rest of files are part of example42 templates and, indeed, the puppet-sentry
 Travis {<img src="https://travis-ci.org/magmax/puppet-sentry.png?branch=master" alt="Build Status" />}[https://travis-ci.org/magmax/puppet-sentry]
 
 
+[Sentry]: http://sentry.readthedocs.org/en/latest/
 [Vagrant]: http://www.vagrantup.com/
 [librarian-puppet]: https://github.com/rodjek/librarian-puppet#librarian-puppet

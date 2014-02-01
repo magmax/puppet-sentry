@@ -330,7 +330,7 @@ class sentry (
     provider => 'pip',
     ensure   => $sentry::manage_package,
     noop     => $sentry::bool_noops,
-    require  =>  Package['python-pip'],
+    require  =>  Package['python-pip', 'python-urllib3', 'python-django-south'],
   }
 
   service { 'sentry':
