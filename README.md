@@ -1,12 +1,14 @@
-# Puppet module: standard42
+# Puppet module: Sentry
 
-This is a Puppet module for standard42 based on the second generation layout ("NextGen") of Example42 Puppet Modules.
 
-Made by Alessandro Franceschi / Lab42
 
-Official site: http://www.example42.com
+This is a Puppet module for sentry based on the second generation layout ("NextGen") of Example42 Puppet Modules.
 
-Official git repository: http://github.com/example42/puppet-standard42
+Made by Miguel Ángel Garcia / MagMax
+
+Official site: not yet
+
+Official git repository: http://github.com/magmax/puppet-sentry
 
 Released under the terms of Apache 2 License.
 
@@ -17,93 +19,93 @@ For detailed info about the logic and usage patterns of Example42 modules check 
 
 ## USAGE - Basic management
 
-* Install standard42 with default settings
+* Install sentry with default settings
 
-        class { 'standard42': }
+        class { 'sentry': }
 
-* Install a specific version of standard42 package
+* Install a specific version of sentry package
 
-        class { 'standard42':
+        class { 'sentry':
           version => '1.0.1',
         }
 
-* Disable standard42 service.
+* Disable sentry service.
 
-        class { 'standard42':
+        class { 'sentry':
           disable => true
         }
 
-* Remove standard42 package
+* Remove sentry package
 
-        class { 'standard42':
+        class { 'sentry':
           absent => true
         }
 
-* Enable auditing without without making changes on existing standard42 configuration *files*
+* Enable auditing without without making changes on existing sentry configuration *files*
 
-        class { 'standard42':
+        class { 'sentry':
           audit_only => true
         }
 
 * Module dry-run: Do not make any change on *all* the resources provided by the module
 
-        class { 'standard42':
+        class { 'sentry':
           noops => true
         }
 
 
 ## USAGE - Overrides and Customizations
-* Use custom sources for main config file 
+* Use custom sources for main config file
 
-        class { 'standard42':
-          source => [ "puppet:///modules/example42/standard42/standard42.conf-${hostname}" , "puppet:///modules/example42/standard42/standard42.conf" ], 
+        class { 'sentry':
+          source => [ "puppet:///modules/example42/sentry/sentry.conf-${hostname}" , "puppet:///modules/example42/sentry/sentry.conf" ],
         }
 
 
 * Use custom source directory for the whole configuration dir
 
-        class { 'standard42':
-          source_dir       => 'puppet:///modules/example42/standard42/conf/',
+        class { 'sentry':
+          source_dir       => 'puppet:///modules/example42/sentry/conf/',
           source_dir_purge => false, # Set to true to purge any existing file not present in $source_dir
         }
 
-* Use custom template for main config file. Note that template and source arguments are alternative. 
+* Use custom template for main config file. Note that template and source arguments are alternative.
 
-        class { 'standard42':
-          template => 'example42/standard42/standard42.conf.erb',
+        class { 'sentry':
+          template => 'example42/sentry/sentry.conf.erb',
         }
 
 * Automatically include a custom subclass
 
-        class { 'standard42':
-          my_class => 'example42::my_standard42',
+        class { 'sentry':
+          my_class => 'example42::my_sentry',
         }
 
 
-## USAGE - Example42 extensions management 
+## USAGE - Example42 extensions management
 * Activate puppi (recommended, but disabled by default)
 
-        class { 'standard42':
+        class { 'sentry':
           puppi    => true,
         }
 
-* Activate puppi and use a custom puppi_helper template (to be provided separately with a puppi::helper define ) to customize the output of puppi commands 
+* Activate puppi and use a custom puppi_helper template (to be provided separately with a puppi::helper define ) to customize the output of puppi commands
 
-        class { 'standard42':
+        class { 'sentry':
           puppi        => true,
-          puppi_helper => 'myhelper', 
+          puppi_helper => 'myhelper',
         }
 
 * Activate automatic monitoring (recommended, but disabled by default). This option requires the usage of Example42 monitor and relevant monitor tools modules
 
-        class { 'standard42':
+        class { 'sentry':
           monitor      => true,
           monitor_tool => [ 'nagios' , 'monit' , 'munin' ],
         }
 
 * Activate automatic firewalling. This option requires the usage of Example42 firewall and relevant firewall tools modules
 
-        class { 'standard42':       
+        class { 'sentry':
           firewall      => true,
           firewall_tool => 'iptables',
           firewall_src  => '10.42.0.0/24',
@@ -130,7 +132,7 @@ To create the virtual machine. Once everything is set, you can enter the virtual
 
 ## CONTINUOUS TESTING
 
-Travis {<img src="https://travis-ci.org/example42/puppet-standard42.png?branch=master" alt="Build Status" />}[https://travis-ci.org/example42/puppet-standard42]
+Travis {<img src="https://travis-ci.org/magmax/puppet-sentry.png?branch=master" alt="Build Status" />}[https://travis-ci.org/magmax/puppet-sentry]
 
 
 [Vagrant]: http://www.vagrantup.com/
