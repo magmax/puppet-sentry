@@ -111,6 +111,27 @@ For detailed info about the logic and usage patterns of Example42 modules check 
         }
 
 
+## DEVELOPMENT
+
+There is a Vagrant environment to be used for development. To use it, you have to install [Vagrant] and [librarian-puppet].
+
+Once installed, just execute:
+
+    $ librarian-puppet install
+
+To fetch all the dependant modules, and:
+
+    $ vagrant up
+
+To create the virtual machine. Once everything is set, you can enter the virtual machine doing:
+
+    $ vagrant ssh
+
+
 ## CONTINUOUS TESTING
 
 Travis {<img src="https://travis-ci.org/example42/puppet-standard42.png?branch=master" alt="Build Status" />}[https://travis-ci.org/example42/puppet-standard42]
+
+
+[Vagrant]: http://www.vagrantup.com/
+[librarian-puppet]: https://github.com/rodjek/librarian-puppet#librarian-puppet
