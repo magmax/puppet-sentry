@@ -1,5 +1,6 @@
 # Puppet module: Sentry
 
+**Current status**: In construction process. It doesn't work yet.
 
 
 This is a Puppet module for [Sentry] based on the second generation layout ("NextGen") of Example42 Puppet Modules.

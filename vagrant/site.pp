@@ -8,11 +8,21 @@ node 'sentry-test' {
   }
 
   package {'python-urllib3':
-    ensure => present,
+    name     => 'urllib3',
+    provider => 'pip',
+    ensure   => present,
   }
 
   package {'python-django-south':
-    ensure => present,
+    name     => 'South',
+    provider => 'pip',
+    ensure   => '0.8.2',
+  }
+
+  package {'python-setproctitle':
+    name     => 'setproctitle',
+    provider => 'pip',
+    ensure   => '1.1.8',
   }
 
   apt::repository { 'testing':
